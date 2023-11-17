@@ -18,3 +18,5 @@ options:
 schema:
   message: "str?"
 image: "ghcr.io/home-assistant/{arch}-addon-example"
+devices:
+  - "/dev/ttyUSB0:/dev/ttyUSB0"
