@@ -15,8 +15,8 @@ image: "grinwi/image-{arch}-smart_boiler"
 map:
   - share:rw
 #image: "ghcr.io/home-assistant/{arch}-addon-example"
-devices:
-  - "/dev/ttyUSB0:/dev/ttyUSB0"
+# devices:
+#   - "/dev/ttyUSB0:/dev/ttyUSB0"
 
 options:
   message: "Hello world..."
