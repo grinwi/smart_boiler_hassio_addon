@@ -1,5 +1,5 @@
 ARG BUILD_FROM
-FROM $BUILD_FROM
+FROM ${BUILD_FROM}
 
 # switch working directory
 WORKDIR /usr/src
@@ -22,14 +22,18 @@ RUN apt-get update \
         glpk-utils \
         libhdf5-dev \
         libhdf5-serial-dev \
+        #netcdf-bin \
+        #libnetcdf-dev \
         pkg-config \
         python3-h5py \
         gfortran \
         libatlas-base-dev \
     && ln -s /usr/include/hdf5/serial /usr/include/hdf5/include \
     && export HDF5_DIR=/usr/include/hdf5 \
+    #&& pip3 install netCDF4==1.5.4 \
     && pip3 install --extra-index-url=https://www.piwheels.org/simple --no-cache-dir -U setuptools wheel \
     && pip3 install --extra-index-url=https://www.piwheels.org/simple --no-cache-dir -r requirements.txt \
+    # && pip3 install emhass-0.5.0-py3-none-any.whl \
     && apt-get purge -y --auto-remove \
         python3-pip \
         python3-dev \
@@ -37,6 +41,8 @@ RUN apt-get update \
         build-essential \
         libhdf5-dev \
         libhdf5-serial-dev \
+        #netcdf-bin \
+        #libnetcdf-dev \
         pkg-config \
         gfortran \
     && rm -rf /var/lib/apt/lists/*
