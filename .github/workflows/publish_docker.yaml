@@ -21,8 +21,8 @@ jobs:
         with:
           args: |
             --amd64 \
-            --target emhass \
-            --docker-hub davidusb
+            --target smart_boiler \
+            --docker-hub grinwi
   publish_aarch64:
     name: Publish-aarch64
     runs-on: ubuntu-latest
@@ -39,8 +39,8 @@ jobs:
         with:
           args: |
             --aarch64 \
-            --target emhass \
-            --docker-hub davidusb
+            --target smart_boiler \
+            --docker-hub grinwi
   publish_armhf:
     name: Publish-armhf
     runs-on: ubuntu-latest
@@ -57,8 +57,8 @@ jobs:
         with:
           args: |
             --armhf \
-            --target emhass \
-            --docker-hub davidusb
+            --target smart_boiler \
+            --docker-hub grinwi
   publish_armv7:
     name: Publish-armv7
     runs-on: ubuntu-latest
@@ -75,5 +75,5 @@ jobs:
         with:
           args: |
             --armv7 \
-            --target emhass \
-            --docker-hub davidusb
+            --target smart_boiler \
+            --docker-hub grinwi
