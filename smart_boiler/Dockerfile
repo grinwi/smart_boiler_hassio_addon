@@ -24,7 +24,6 @@ RUN apt-get update \
         libhdf5-serial-dev \
         #netcdf-bin \
         #libnetcdf-dev \
-        influxdb \
         pkg-config \
         python3-h5py \
         gfortran \
