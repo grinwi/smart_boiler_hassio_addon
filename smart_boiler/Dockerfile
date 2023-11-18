@@ -1,36 +1,63 @@
-# https://developers.home-assistant.io/docs/add-ons/configuration#add-on-dockerfile
 ARG BUILD_FROM
-FROM $BUILD_FROM
+FROM ${BUILD_FROM}
 
-# Execute during the build of the image
-ARG TEMPIO_VERSION BUILD_ARCH
-RUN \
-    curl -sSLf -o /usr/bin/tempio \
-    "https://github.com/home-assistant/tempio/releases/download/${TEMPIO_VERSION}/tempio_${BUILD_ARCH}"
+# switch working directory
+WORKDIR /usr/src
 
-# Copy root filesystem
+# copy the requirements file into the image
+COPY ./requirements.txt /usr/src/requirements.txt
+
+# Setup
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        libffi-dev \
+        python3 \
+        python3-pip \
+        python3-dev \
+        git \
+        build-essential \
+        coinor-libcbc-dev \
+        coinor-cbc \
+        libglpk-dev \
+        glpk-utils \
+        libhdf5-dev \
+        libhdf5-serial-dev \
+        #netcdf-bin \
+        #libnetcdf-dev \
+        influxdb \
+        pkg-config \
+        python3-h5py \
+        gfortran \
+        libatlas-base-dev \
+    && ln -s /usr/include/hdf5/serial /usr/include/hdf5/include \
+    && export HDF5_DIR=/usr/include/hdf5 \
+    #&& pip3 install netCDF4==1.5.4 \
+    && pip3 install --extra-index-url=https://www.piwheels.org/simple --no-cache-dir -U setuptools wheel \
+    && pip3 install --extra-index-url=https://www.piwheels.org/simple --no-cache-dir -r requirements.txt \
+    # && pip3 install emhass-0.5.0-py3-none-any.whl \
+    && apt-get purge -y --auto-remove \
+        python3-pip \
+        python3-dev \
+        git \
+        build-essential \
+        libhdf5-dev \
+        libhdf5-serial-dev \
+        #netcdf-bin \
+        #libnetcdf-dev \
+        pkg-config \
+        gfortran \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /
+
+# copy contents
+COPY config_smart_boiler.yaml /usr/src
 COPY rootfs /
-
-FROM python
-WORKDIR /app
-COPY src/smart_boiler/requirements.txt /app/requirements.txt
-RUN pip install --trusted-host pypi.python.org -r requirements.txt
-
-# copying of files needed to run the script (modules etc...)
-COPY src/smart_boiler/control.py /app/control.py
-COPY src/smart_boiler/boiler.py /app/boiler.py
-COPY src/smart_boiler/time_handler.py /app/time_handler.py
-COPY src/smart_boiler/week_planner.py /app/week_planner.py
-COPY src/smart_boiler/event_checker.py /app/event_checker.py
-COPY src/smart_boiler/settings.json /app/settings.json
-
-# CMD ["python", "-u", "control.py","-f", "settings.json"]
 
 # Labels
 LABEL \
   io.hass.name="smart_boiler" \
-  io.hass.description="Smart Boiler: Smart boiling for Home Assistant" \
+  io.hass.description="Smart Boiler: Boiling Management for Home Assistant" \
   io.hass.version=${BUILD_VERSION} \
   io.hass.type="addon" \
   io.hass.arch="aarch64|amd64|armhf|armv7"
-
