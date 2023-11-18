@@ -24,5 +24,13 @@ COPY src/smart_boiler/week_planner.py /app/week_planner.py
 COPY src/smart_boiler/event_checker.py /app/event_checker.py
 COPY src/smart_boiler/settings.json /app/settings.json
 
-CMD ["python", "-u", "control.py","-f", "settings.json"]
+# CMD ["python", "-u", "control.py","-f", "settings.json"]
+
+# Labels
+LABEL \
+  io.hass.name="smart_boiler" \
+  io.hass.description="Smart Boiler: Smart boiling for Home Assistant" \
+  io.hass.version=${BUILD_VERSION} \
+  io.hass.type="addon" \
+  io.hass.arch="aarch64|amd64|armhf|armv7"
 
