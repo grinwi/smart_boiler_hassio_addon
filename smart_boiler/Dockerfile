@@ -1,5 +1,5 @@
 ARG BUILD_FROM
-FROM ${BUILD_FROM}
+FROM $BUILD_FROM
 
 # switch working directory
 WORKDIR /usr/src
