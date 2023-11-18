@@ -19,5 +19,5 @@ jobs:
         with:
           args: |
             --armv7 \
-            --target emhass \
-            --docker-hub davidusb
+            --target smart_boiler \
+            --docker-hub grinwi
