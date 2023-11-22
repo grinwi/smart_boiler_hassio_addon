@@ -6,6 +6,7 @@ WORKDIR /usr/src
 
 # copy the requirements file into the image
 COPY ./requirements.txt /usr/src/requirements.txt
+# COPY ./emhass-0.5.0-py3-none-any.whl /usr/src/emhass-0.5.0-py3-none-any.whl
 
 # Setup
 RUN apt-get update \
@@ -56,7 +57,7 @@ COPY rootfs /
 # Labels
 LABEL \
   io.hass.name="smart_boiler" \
-  io.hass.description="Smart Boiler: Boiling Management for Home Assistant" \
+  io.hass.description="Smart boiler: Smart Energy Management for Home Assistant" \
   io.hass.version=${BUILD_VERSION} \
   io.hass.type="addon" \
   io.hass.arch="aarch64|amd64|armhf|armv7"
