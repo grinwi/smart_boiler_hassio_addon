@@ -19,7 +19,6 @@ map:
 #   - "/dev/ttyUSB0:/dev/ttyUSB0"
 
 options:
-  message: "Hello world..."
   hass_url: empty
   long_lived_token: empty
   costfun: profit
