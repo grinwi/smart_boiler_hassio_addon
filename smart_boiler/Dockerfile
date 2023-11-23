@@ -1,11 +1,12 @@
 ARG BUILD_FROM
-FROM $BUILD_FROM
+FROM ${BUILD_FROM}
 
 # switch working directory
 WORKDIR /usr/src
 
 # copy the requirements file into the image
 COPY ./requirements.txt /usr/src/requirements.txt
+# COPY ./emhass-0.5.0-py3-none-any.whl /usr/src/emhass-0.5.0-py3-none-any.whl
 
 # Setup
 RUN apt-get update \
@@ -22,14 +23,18 @@ RUN apt-get update \
         glpk-utils \
         libhdf5-dev \
         libhdf5-serial-dev \
+        #netcdf-bin \
+        #libnetcdf-dev \
         pkg-config \
         python3-h5py \
         gfortran \
         libatlas-base-dev \
     && ln -s /usr/include/hdf5/serial /usr/include/hdf5/include \
     && export HDF5_DIR=/usr/include/hdf5 \
+    #&& pip3 install netCDF4==1.5.4 \
     && pip3 install --extra-index-url=https://www.piwheels.org/simple --no-cache-dir -U setuptools wheel \
     && pip3 install --extra-index-url=https://www.piwheels.org/simple --no-cache-dir -r requirements.txt \
+    # && pip3 install emhass-0.5.0-py3-none-any.whl \
     && apt-get purge -y --auto-remove \
         python3-pip \
         python3-dev \
@@ -37,6 +42,8 @@ RUN apt-get update \
         build-essential \
         libhdf5-dev \
         libhdf5-serial-dev \
+        #netcdf-bin \
+        #libnetcdf-dev \
         pkg-config \
         gfortran \
     && rm -rf /var/lib/apt/lists/*
@@ -50,7 +57,7 @@ COPY rootfs /
 # Labels
 LABEL \
   io.hass.name="smart_boiler" \
-  io.hass.description="Smart Boiler: Boiling Management for Home Assistant" \
+  io.hass.description="Smart boiler: Smart Energy Management for Home Assistant" \
   io.hass.version=${BUILD_VERSION} \
   io.hass.type="addon" \
   io.hass.arch="aarch64|amd64|armhf|armv7"

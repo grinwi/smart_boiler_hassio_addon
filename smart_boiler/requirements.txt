@@ -14,3 +14,4 @@ flask>=2.0.3
 waitress>=2.1.1
 plotly>=5.6.0
 smart-boiler==0.0.1
+#git+https://github.com/grinwi/smart_boiler/tree/sb_has
