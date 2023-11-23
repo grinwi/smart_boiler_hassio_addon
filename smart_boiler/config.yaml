@@ -11,7 +11,7 @@ arch:
   - amd64
   - i386
 init: false
-image: "grinwi/image-{arch}-smart_boiler"
+#image: "grinwi/image-{arch}-smart_boiler"
 map:
   - share:rw
 #image: "ghcr.io/home-assistant/{arch}-addon-example"
