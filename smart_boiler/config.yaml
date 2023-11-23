@@ -3,7 +3,7 @@ name: Smart Boiler add-on
 version: "0.0.1.1"
 slug: smart-boiler
 description: Smart Boiler add-on
-url: "https://github.com/grinwi/smart_boiler_hassio_addon/tree/main/example"
+url: "https://github.com/grinwi/smart_boiler_hassio_addon"
 arch:
   - armhf
   - armv7
