@@ -4,14 +4,6 @@ build_from:
   armhf: ghcr.io/home-assistant/armhf-base-debian:bullseye
   armv7: ghcr.io/home-assistant/armv7-base-debian:bullseye
   aarch64: ghcr.io/home-assistant/aarch64-base-debian:bullseye
-labels:
-  org.opencontainers.image.title: "Smart Boiler: Smart Energt management add-on for HA"
-  org.opencontainers.image.description: "Smart Boiler Addon for smart energy management"
-  org.opencontainers.image.source: "https://github.com/grinwi/smart_boiler_hassio_addon"
-  org.opencontainers.image.licenses: "Apache License 2.0"
-args:
-  TEMPIO_VERSION: "2021.09.0"
-
 codenotary:
   signer: notary@home-assistant.io
   base_image: notary@home-assistant.io
