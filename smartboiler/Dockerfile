@@ -52,7 +52,7 @@ WORKDIR /
 
 # copy contents
 COPY config_smartboiler.yaml /usr/src
-COPY rootfs /ls
+COPY rootfs /
 
 # Labels
 LABEL \
