@@ -19,7 +19,7 @@ jobs:
         with:
           args: |
             --amd64 \
-            --target smart_boiler \
+            --target smartboiler \
             --docker-hub grinwi
   publish_aarch64:
     name: Publish-aarch64
@@ -37,5 +37,5 @@ jobs:
         with:
           args: |
             --aarch64 \
-            --target smart_boiler \
+            --target smartboiler \
             --docker-hub grinwi

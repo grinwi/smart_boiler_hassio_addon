@@ -3,4 +3,4 @@
 # Start SMART BOILER service
 # ==============================================================================
 
-exec python3 -m smart-boiler.control --url "http://supervisor/core/api" --key "$SUPERVISOR_TOKEN" --addon "True"
+exec python3 -m smartboiler.control --url "http://supervisor/core/api" --key "$SUPERVISOR_TOKEN" --addon "True"

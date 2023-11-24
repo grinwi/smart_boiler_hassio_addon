@@ -19,5 +19,5 @@ jobs:
         with:
           args: |
             --armhf \
-            --target smart_boiler \
+            --target smartboiler \
             --docker-hub grinwi

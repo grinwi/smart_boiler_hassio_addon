@@ -51,12 +51,12 @@ RUN apt-get update \
 WORKDIR /
 
 # copy contents
-COPY config_smart_boiler.yaml /usr/src
-COPY rootfs /
+COPY config_smartboiler.yaml /usr/src
+COPY rootfs /ls
 
 # Labels
 LABEL \
-  io.hass.name="smart_boiler" \
+  io.hass.name="smartboiler" \
   io.hass.description="Smart boiler: Smart Energy Management for Home Assistant" \
   io.hass.version=${BUILD_VERSION} \
   io.hass.type="addon" \
