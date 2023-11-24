@@ -9,7 +9,7 @@ This repository implements add-on of smartboiler
 
 This repository contains the following add-ons
 
-### [Example add-on](./example)
+### [SmartBoiler add-on](./smartboiler)
 
 ![Supports aarch64 Architecture][aarch64-shield]
 ![Supports amd64 Architecture][amd64-shield]
@@ -17,7 +17,7 @@ This repository contains the following add-ons
 ![Supports armv7 Architecture][armv7-shield]
 ![Supports i386 Architecture][i386-shield]
 
-_Example add-on to use as a blueprint for new add-ons._
+_SMART BOILER add-on to use as a blueprint for new add-ons._
 
 <!--
 
