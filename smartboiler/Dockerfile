@@ -53,6 +53,9 @@ WORKDIR /
 # copy contents
 COPY config_smartboiler.yaml /usr/src
 COPY rootfs /
+RUN chmod -x /etc/services.d/smartboiler/run
+RUN chmod -x /etc/services.d/smartboiler/finish
+
 
 # Labels
 LABEL \
