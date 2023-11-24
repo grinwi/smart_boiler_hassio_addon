@@ -10,7 +10,7 @@ arch:
   - aarch64
   - amd64
   - i386
-image: "davidusb/image-{arch}-emhass"
+image: "grinwi/image-{arch}-smartboiler"
 map:
   - config:rw
   - share:rw
