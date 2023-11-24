@@ -22,7 +22,7 @@ jobs:
         with:
           args: |
             --amd64 \
-            --target smart_boiler \
+            --target smartboiler \
             --docker-hub grinwi
   publish_aarch64:
     name: Publish-aarch64
@@ -40,7 +40,7 @@ jobs:
         with:
           args: |
             --aarch64 \
-            --target smart_boiler \
+            --target smartboiler \
             --docker-hub grinwi
   publish_armhf:
     name: Publish-armhf
@@ -58,7 +58,7 @@ jobs:
         with:
           args: |
             --armhf \
-            --target smart_boiler \
+            --target smartboiler \
             --docker-hub grinwi
   publish_armv7:
     name: Publish-armv7
@@ -76,5 +76,5 @@ jobs:
         with:
           args: |
             --armv7 \
-            --target smart_boiler \
+            --target smartboiler \
             --docker-hub grinwi
